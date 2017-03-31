@@ -1,0 +1,21 @@
+{
+  "name": "jng-craft-jng17",
+  "version": "0.14.12",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "csswring": "^5.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^6.1.1",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "gulp-watch": "^4.3.5",
+    "node-notifier": "^4.5.0"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp watch"
+  }
+}

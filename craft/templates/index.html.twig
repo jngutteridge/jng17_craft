@@ -1,0 +1,46 @@
+{% extends "_layout" %}
+
+{% block content %}
+    <header class="frontpage row">
+        <section class="columns small-12">
+            <h1>Jack Gutteridge</h1>
+            <h2>Leicester, UK</h2>
+        </section>
+    </header>
+    <section class="frontpage links">
+        <nav>
+            <ul class="row small-up-5 no-bullet ">
+                <li class="column column-block"><a href="https://www.facebook.com/jackgutteridge" target="_blank" class="link facebook"><span class="show-for-sr">Facebook</span></a></li>
+                <li class="column column-block"><a href="https://twitter.com/jngutteridge" target="_blank" class="link twitter"><span class="show-for-sr">Twitter</span></a></li>
+                <li class="column column-block"><a href="http://www.last.fm/user/madnessjack" target="_blank" class="link lastfm"><span class="show-for-sr">LastFM</span></a></li>
+                <li class="column column-block"><a href="https://github.com/jngutteridge" target="_blank" class="link github"><span class="show-for-sr">GitHub</span></a></li>
+                <li class="column column-block"><a href="https://www.linkedin.com/in/jackgutteridge" target="_blank" class="link linkedin"><span class="show-for-sr">LinkedIn</span></a></li>
+            </ul>
+        </nav>
+    </section>
+    <main>
+        <article class="frontpage index">
+            <header class="row">
+                <div class="columns small-12">
+                    <h2>Latest writing</h2>
+                </div>
+            </header>
+            {% for entry in craft.entries.section('posts').limit(5) %}
+                {%  include '_index-entry.html.twig' %}
+            {% endfor %}
+        </article>
+    </main>
+    <hr />
+    <section class="frontpage contact">
+        <header class="row">
+            <div class="columns small-12">
+                <h2>Contact</h2>
+            </div>
+        </header>
+        <section class="content row">
+            <div class="columns small-12">
+                <p>Email me at <a href="mailto:jack@kingbrick.co.uk">jack@kingbrick.co.uk</a>.<br/>Alternatively, contact me through one of my social profiles.</p>
+            </div>
+        </section>
+    </section>
+{% endblock %}

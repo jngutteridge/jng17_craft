@@ -1,0 +1,13 @@
+<article class="post">
+    <header class="row">
+        <div class="columns small-12">
+            <h2><a href="{{ entry.url }}">{{ entry.title }}</a></h2>
+            <time>{{ entry.postDate|date('jS M Y') }}</time>
+        </div>
+    </header>
+    <aside class="action row">
+        <div class="columns small-12">
+            <a class="action" href="{{ entry.url }}"><span class="show-for-sr">Read article</span></a>
+        </div>
+    </aside>
+</article>

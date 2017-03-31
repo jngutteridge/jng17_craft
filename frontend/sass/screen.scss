@@ -1,0 +1,340 @@
+@import "../../node_modules/foundation-sites/scss/foundation";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic|Montserrat);
+
+$font-body: 'Roboto', Helvetica, Arial, sans-serif;
+$font-heading: 'Montserrat', 'Roboto Condensed', Helvetica, sans-serif;
+
+$hue-primary: 200;
+
+$time-transition-brisk: 60ms;
+$time-transition-lasting: 600ms;
+
+$color-primary:            hsl($hue-primary, 66%, 30%);
+$color-primary-black: 	   hsl($hue-primary, 5%, 4%);
+$color-primary-darker:     hsl($hue-primary, 66%, 18%);
+$color-primary-dark:       hsl($hue-primary, 66%, 25%);
+$color-primary-grey:       hsl($hue-primary + 10, 40%, 25%);
+$color-primary-anchor:     hsl($hue-primary - 10, 66%, 40%);
+$color-primary-screen:     hsl($hue-primary + 10, 66%, 70%);
+$color-primary-light:      hsl($hue-primary - 10, 25%, 85%);
+$color-primary-lighter:    hsl($hue-primary - 10, 25%, 90%);
+$color-primary-white: 	   hsl($hue-primary, 5%, 96%);
+
+$body-font-family: $font-body;
+$header-font-family: $font-heading;
+
+$hr-border: 4rem solid transparent;
+$hr-margin: 0 auto;
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-flex-grid;
+@include foundation-visibility-classes;
+
+body {
+    background-color: $color-primary-black;
+    color: $color-primary-white;
+}
+
+a:link,
+a:visited {
+    color: $color-primary-anchor;
+}
+
+.content {
+
+    em {
+        color: $color-primary-grey;
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: $color-primary;
+
+        a:link,
+        a:visited {
+            color: $color-primary;
+            transition: color 650ms;
+
+            &:hover {
+                color: $color-primary-anchor;
+                transition: color 100ms;
+            }
+        }
+    }
+
+    blockquote {
+        color: $color-primary-grey;
+
+        padding: 0 0 0 2em;
+        margin: 0 0 0 2em;
+        border-left: $color-primary solid .2em;
+    }
+
+    a:link,
+    a:visited {
+        color: $color-primary-anchor;
+        border-bottom: rgba($color-primary-grey, .4) solid 0.1em;
+        transition: border-bottom-color 400ms;
+
+        &:hover {
+            transition: border-bottom-color 80ms;
+            border-bottom-color: rgba($color-primary-anchor, .8);
+        }
+    }
+}
+
+article.page {
+    color: $color-primary-black;
+    background-color: $color-primary-white;
+
+    header,
+    aside {
+        background-color: $color-primary-dark;
+        color: $color-primary-white;
+        text-align: center;
+    }
+
+    header {
+        padding: 2rem 0 1rem;
+    }
+
+    aside {
+        padding: 0 0 1rem;
+    }
+}
+
+header.main {
+
+    nav.header.main {
+
+        ul {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+
+            &.contact {
+                float: right;
+            }
+
+            &.profiles {
+
+                @include breakpoint(small down) {
+                    display: none;
+                }
+            }
+
+            li {
+                display: inline-block;
+                margin: 0;
+            }
+
+            a {
+                display: inline-block;
+                padding: 4px 8px;
+            }
+        }
+    }
+}
+
+header.frontpage {
+    text-align: center;
+    padding: 20vh 0;
+    h1 {
+        font-size: 14vw;
+        @include breakpoint(medium up) {
+            font-size: 4rem;
+        }
+        margin-bottom: 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+}
+
+.frontpage {
+    text-align: center;
+
+    article.post {
+        h2 {
+            :link,
+            :visited {
+                color: $color-primary-white;
+            }
+        }
+    }
+}
+
+section.frontpage.links {
+
+    nav {
+
+        ul {
+            height: 0;
+            padding: 0 0 21%;
+        }
+
+        li {
+            display: flex;
+            justify-content: center;
+            padding: 1% 0 19%;
+        }
+
+        a.link {
+            height: 0;
+            z-index: 2;
+            position: relative;
+            transition: $time-transition-lasting all;
+
+            width: 95%;
+            padding: 0 0 95%;
+
+            &:hover {
+                transition: $time-transition-brisk all;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 15%;
+                right: 15%;
+                bottom: 15%;
+                left: 15%;
+                z-index: 1;
+                transition: $time-transition-lasting all;
+                background: no-repeat center center / auto 50%;
+            }
+
+            &:hover:after {
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                transition: $time-transition-brisk all;
+            }
+
+            &.facebook {
+                background-color: #3960ac;
+
+                &:hover {
+                    background-color: #3968c6;
+                }
+
+                &:after {
+                    background-image: url('/img/links-badge-facebook.png');
+                }
+            }
+
+            &.twitter {
+                background-color: #3999ac;
+
+                &:hover {
+                    background-color: #39aec6;
+                }
+
+                &:after {
+                    background-image: url('/img/links-badge-twitter.png');
+                }
+            }
+
+            &.linkedin {
+                background-color: #3973ac;
+
+                &:hover {
+                    background-color: #397fc6;
+                }
+
+                &:after {
+                    background-image: url('/img/links-badge-linkedin.png');
+                }
+            }
+
+            &.lastfm {
+                background-color: #ac3939;
+
+                &:hover {
+                    background-color: #c63939;
+                }
+
+                &:after {
+                    background-image: url('/img/links-badge-lastfm.png');
+                }
+            }
+
+            &.github {
+                background-color: #656565;
+
+                &:hover {
+                    background-color: #707070;
+                }
+
+                &:after {
+                    background-image: url('/img/links-badge-github.png');
+                }
+            }
+        }
+    }
+}
+
+article.index {
+
+    article.post {
+        position: relative;
+        padding: 2rem 0;
+
+        transition: all $time-transition-lasting;
+
+        &:hover {
+            transition: all $time-transition-brisk;
+        }
+
+        .action {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+            a.action {
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                background-color: transparent;
+            }
+        }
+    }
+}
+
+article.index {
+
+    article.post {
+        background-color: $color-primary-darker;
+        color: $color-primary-white;
+
+        a:link,
+        a:visited {
+            color: $color-primary-white;
+        }
+
+        &:hover {
+            background-color: $color-primary-dark;
+        }
+
+        aside {
+            background-color: transparent;
+        }
+
+        header {
+            padding: 0;
+            background-color: transparent;
+        }
+    }
+}
+
+footer.main {
+    text-align: center;
+}

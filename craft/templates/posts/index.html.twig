@@ -1,0 +1,18 @@
+{% extends "_layout" %}
+{% set title = "Writing" %}
+
+{% block content %}
+    <main>
+        <article class="main page index">
+            <header>
+                <div class="row column small-12">
+                    <h1>Writing</h1>
+                    <h2>By Jack Gutteridge</h2>
+                </div>
+            </header>
+            {% for entry in craft.entries.section('posts') %}
+                {%  include '_index-entry.html.twig' %}
+            {% endfor %}
+        </article>
+    </main>
+{% endblock %}

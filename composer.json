@@ -1,0 +1,11 @@
+{
+    "name": "jngutteridge/jng17_craft",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jack Gutteridge",
+            "email": "jack@kingbrick.co.uk"
+        }
+    ],
+    "require": {}
+}

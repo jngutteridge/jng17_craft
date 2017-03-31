@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB">
+<head>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+	<title>{% if title is defined %}{{ title }} / {% endif %}{{ siteName }}</title>
+	<link rel="home" href="{{ siteUrl }}" />
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+</head>
+<body>
+    {% if entry is not defined or entry.uri != '__home__' %}
+        {%  include '_headernav.html.twig' %}
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+    <hr />
+    {% include '_footer.html.twig' %}
+</body>
+</html>

@@ -1,0 +1,6 @@
+/craft/app
+/craft/config
+/craft/storage
+craft/plugins
+/node_modules
+/web/css
