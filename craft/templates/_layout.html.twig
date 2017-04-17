@@ -6,6 +6,7 @@
 	<title>{% if title is defined %}{{ title }} / {% endif %}{{ siteName }}</title>
 	<link rel="home" href="{{ siteUrl }}" />
     <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    {% hook 'seomaticRender' %}
 </head>
 <body>
     {% if entry is not defined or entry.uri != '__home__' %}
