@@ -130,7 +130,7 @@ a:hover, a:active {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
     li {
         margin: 0;
@@ -254,6 +254,30 @@ a:hover, a:active {
                 background-image: url('/img/links-badge-github.png');
             }
         }
+
+        &.instagram {
+            background-color: #642d65;
+
+            &:hover {
+                background-color: #703564;
+            }
+
+            &:after {
+                background-image: url('/img/links-badge-instagram.png');
+            }
+        }
+
+        &.spotify {
+            background-color: #256534;
+
+            &:hover {
+                background-color: #357024;
+            }
+
+            &:after {
+                background-image: url('/img/links-badge-spotify.png');
+            }
+        }
     }
 }
 
@@ -284,6 +308,30 @@ a:hover, a:active {
             content: '\2192';
             display: inline-block;
             margin: 0 .25rem;
+        }
+    }
+}
+
+nav.header.main {
+    ul {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        &.contact {
+            float: right;
+        }
+        &.profiles {
+            @media (max-width: 920px) {
+                display: none;
+            }
+        }
+        li {
+            display: inline-block;
+            margin: 0;
+        }
+        a {
+            display: inline-block;
+            padding: 4px 8px;
         }
     }
 }
