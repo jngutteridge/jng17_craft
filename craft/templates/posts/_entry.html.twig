@@ -2,23 +2,16 @@
 
 {% block content %}
     <main>
-        <article class="article page">
-            <header>
-                <div class="row column small-12">
+        <article>
+            <header class="title">
+                <div class="container wide">
                     <h1>{{ entry.title }}</h1>
-                </div>
-            </header>
-            <aside>
-                <div class="row column small-12">
                     <time>{{ entry.postDate|date('jS M Y') }}</time>
                 </div>
-            </aside>
-            <hr />
-            <section class="content row">
-                <div class="column small-12 medium-8 medium-offset-2">
+            </header>
+            <section class="container">
                     {{ entry.postContent }}
                     <hr />
-                </div>
             </section>
         </article>
     </main>

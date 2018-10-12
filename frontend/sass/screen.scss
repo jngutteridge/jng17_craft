@@ -1,340 +1,289 @@
-@import "../../node_modules/foundation-sites/scss/foundation";
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic|Montserrat);
+@import "https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic|Montserrat:300,400";
 
-$font-body: 'Roboto', Helvetica, Arial, sans-serif;
-$font-heading: 'Montserrat', 'Roboto Condensed', Helvetica, sans-serif;
+$font-primary: 'Roboto', sans-serif;
+$font-alternative: 'Montserrat', serif;
 
-$hue-primary: 200;
+$color-accent-hue: 200;
+$color-accent: hsl($color-accent-hue, 30%, 40%);
+
+$size-1: 3.157rem;
+$size-2: 2.369rem;
+$size-3: 1.777rem;
+$size-4: 1.333rem;
+$size-5: 1rem;
+$size-6: 0.75rem;
 
 $time-transition-brisk: 60ms;
 $time-transition-lasting: 600ms;
 
-$color-primary:            hsl($hue-primary, 66%, 30%);
-$color-primary-black: 	   hsl($hue-primary, 5%, 4%);
-$color-primary-darker:     hsl($hue-primary, 66%, 18%);
-$color-primary-dark:       hsl($hue-primary, 66%, 25%);
-$color-primary-grey:       hsl($hue-primary + 10, 40%, 25%);
-$color-primary-anchor:     hsl($hue-primary - 10, 66%, 40%);
-$color-primary-screen:     hsl($hue-primary + 10, 66%, 70%);
-$color-primary-light:      hsl($hue-primary - 10, 25%, 85%);
-$color-primary-lighter:    hsl($hue-primary - 10, 25%, 90%);
-$color-primary-white: 	   hsl($hue-primary, 5%, 96%);
+html {
+    font-size: .75em;
 
-$body-font-family: $font-body;
-$header-font-family: $font-heading;
+    @media (min-width: 320px) {
+        font-size: .85em;
+    }
 
-$hr-border: 4rem solid transparent;
-$hr-margin: 0 auto;
+    @media (min-width: 640px) {
+        font-size: 1em;
+    }
+}
 
-@include foundation-global-styles;
-@include foundation-typography;
-@include foundation-flex-grid;
-@include foundation-visibility-classes;
+.container {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 1rem;
+    &.wide {
+        max-width: 960px;
+    }
+}
 
 body {
-    background-color: $color-primary-black;
-    color: $color-primary-white;
+    background-color: white;
+    font-family: $font-primary;
+    font-weight: 400;
+    line-height: 1.45;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-a:link,
-a:visited {
-    color: $color-primary-anchor;
+p {
+    margin-bottom: 1.3em;
 }
 
-.content {
-
-    em {
-        color: $color-primary-grey;
-    }
-
-    h1,
-    h2,
-    h3 {
-        color: $color-primary;
-
-        a:link,
-        a:visited {
-            color: $color-primary;
-            transition: color 650ms;
-
-            &:hover {
-                color: $color-primary-anchor;
-                transition: color 100ms;
-            }
-        }
-    }
-
-    blockquote {
-        color: $color-primary-grey;
-
-        padding: 0 0 0 2em;
-        margin: 0 0 0 2em;
-        border-left: $color-primary solid .2em;
-    }
-
-    a:link,
-    a:visited {
-        color: $color-primary-anchor;
-        border-bottom: rgba($color-primary-grey, .4) solid 0.1em;
-        transition: border-bottom-color 400ms;
-
-        &:hover {
-            transition: border-bottom-color 80ms;
-            border-bottom-color: rgba($color-primary-anchor, .8);
-        }
-    }
+h1, h2, h3, h4 {
+    font-family: $font-alternative;
+    color: $color-accent;
+    margin: 1.414em 0 0.5em;
+    font-weight: inherit;
+    line-height: 1.2;
 }
 
-article.page {
-    color: $color-primary-black;
-    background-color: $color-primary-white;
+h1 {
+    margin-top: 0;
+    font-size: $size-1;
+}
 
-    header,
-    aside {
-        background-color: $color-primary-dark;
-        color: $color-primary-white;
+h2 {
+    font-size: $size-2;
+}
+
+h3 {
+    font-size: $size-3;
+}
+
+h4 {
+    font-size: $size-4;
+}
+
+small {
+    font-size: $size-6;
+}
+
+.title {
+    h1, h2, h3 {
         text-align: center;
     }
-
-    header {
-        padding: 2rem 0 1rem;
+    time {
+        font-size: $size-6;
+        color: hsl($color-accent-hue, 15%, 60%);
+        text-align: center;
+        display: block;
     }
 
-    aside {
-        padding: 0 0 1rem;
-    }
-}
+    &--main {
+        background-color: $color-accent;
+        color: white;
+        padding: 220px 1rem 160px;
 
-header.main {
-
-    nav.header.main {
-
-        ul {
-            display: inline-block;
+        h1, h2, h3 {
+            font-weight: 300;
+            color: white;
             margin: 0;
-            padding: 0;
-
-            &.contact {
-                float: right;
-            }
-
-            &.profiles {
-
-                @include breakpoint(small down) {
-                    display: none;
-                }
-            }
-
-            li {
-                display: inline-block;
-                margin: 0;
-            }
-
-            a {
-                display: inline-block;
-                padding: 4px 8px;
-            }
         }
-    }
-}
-
-header.frontpage {
-    text-align: center;
-    padding: 20vh 0;
-    h1 {
-        font-size: 14vw;
-        @include breakpoint(medium up) {
-            font-size: 4rem;
-        }
-        margin-bottom: 0;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-}
-
-.frontpage {
-    text-align: center;
-
-    article.post {
         h2 {
-            :link,
-            :visited {
-                color: $color-primary-white;
-            }
+            margin-top: 2rem;
+            font-size: $size-3;
         }
     }
 }
 
-section.frontpage.links {
+hr {
+    padding-bottom: 4rem;
+    border: none;
+    margin: 0;
+}
 
-    nav {
+a:link, a:visited {
+    color: hsl($color-accent-hue, 80%, 40%);
+}
 
-        ul {
-            height: 0;
-            padding: 0 0 21%;
+a:hover, a:active {
+    color: hsl($color-accent-hue, 20%, 60%);
+}
+
+.links {
+    background-color: $color-accent;
+    ul {
+        margin: 0 -.25rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    li {
+        margin: 0;
+        padding: .25rem;
+        list-style: none;
+        flex-grow: 1;
+        min-width: 4rem;
+    }
+    a {
+        display: block;
+        padding-top: 100%;
+        background-color: white;
+    }
+    span {
+        display: none;
+    }
+}
+
+.links {
+
+    ul {
+        height: 0;
+        padding: 0 0 21%;
+    }
+
+    li {
+        display: flex;
+        justify-content: center;
+        padding: 1% 0 19%;
+    }
+
+    a.link {
+        height: 0;
+        z-index: 2;
+        position: relative;
+        transition: $time-transition-lasting all;
+
+        width: 95%;
+        padding: 0 0 95%;
+
+        &:hover {
+            transition: $time-transition-brisk all;
         }
 
-        li {
-            display: flex;
-            justify-content: center;
-            padding: 1% 0 19%;
-        }
-
-        a.link {
-            height: 0;
-            z-index: 2;
-            position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            bottom: 15%;
+            left: 15%;
+            z-index: 1;
             transition: $time-transition-lasting all;
+            background: no-repeat center center / auto 50%;
+        }
 
-            width: 95%;
-            padding: 0 0 95%;
+        &:hover:after {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transition: $time-transition-brisk all;
+        }
+
+        &.facebook {
+            background-color: #3960ac;
 
             &:hover {
-                transition: $time-transition-brisk all;
+                background-color: #3968c6;
             }
 
             &:after {
-                content: '';
-                position: absolute;
-                top: 15%;
-                right: 15%;
-                bottom: 15%;
-                left: 15%;
-                z-index: 1;
-                transition: $time-transition-lasting all;
-                background: no-repeat center center / auto 50%;
+                background-image: url('/img/links-badge-facebook.png');
+            }
+        }
+
+        &.twitter {
+            background-color: #3999ac;
+
+            &:hover {
+                background-color: #39aec6;
             }
 
-            &:hover:after {
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                transition: $time-transition-brisk all;
+            &:after {
+                background-image: url('/img/links-badge-twitter.png');
+            }
+        }
+
+        &.linkedin {
+            background-color: #3973ac;
+
+            &:hover {
+                background-color: #397fc6;
             }
 
-            &.facebook {
-                background-color: #3960ac;
+            &:after {
+                background-image: url('/img/links-badge-linkedin.png');
+            }
+        }
 
-                &:hover {
-                    background-color: #3968c6;
-                }
+        &.lastfm {
+            background-color: #ac3939;
 
-                &:after {
-                    background-image: url('/img/links-badge-facebook.png');
-                }
+            &:hover {
+                background-color: #c63939;
             }
 
-            &.twitter {
-                background-color: #3999ac;
+            &:after {
+                background-image: url('/img/links-badge-lastfm.png');
+            }
+        }
 
-                &:hover {
-                    background-color: #39aec6;
-                }
+        &.github {
+            background-color: #656565;
 
-                &:after {
-                    background-image: url('/img/links-badge-twitter.png');
-                }
+            &:hover {
+                background-color: #707070;
             }
 
-            &.linkedin {
-                background-color: #3973ac;
-
-                &:hover {
-                    background-color: #397fc6;
-                }
-
-                &:after {
-                    background-image: url('/img/links-badge-linkedin.png');
-                }
-            }
-
-            &.lastfm {
-                background-color: #ac3939;
-
-                &:hover {
-                    background-color: #c63939;
-                }
-
-                &:after {
-                    background-image: url('/img/links-badge-lastfm.png');
-                }
-            }
-
-            &.github {
-                background-color: #656565;
-
-                &:hover {
-                    background-color: #707070;
-                }
-
-                &:after {
-                    background-image: url('/img/links-badge-github.png');
-                }
+            &:after {
+                background-image: url('/img/links-badge-github.png');
             }
         }
     }
 }
 
-article.index {
-
-    article.post {
+.latest {
+    a {
+        text-decoration: none;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
         position: relative;
-        padding: 2rem 0;
-
-        transition: all $time-transition-lasting;
-
-        &:hover {
-            transition: all $time-transition-brisk;
+    }
+    time {
+        font-size: $size-6;
+        color: hsl($color-accent-hue, 15%, 60%);
+    }
+    span {
+        font-size: $size-6;
+        &:before {
+            content: '\2022';
+            display: inline-block;
+            margin: 0 .25rem;
         }
-
-        .action {
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-
-            a.action {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
-                background-color: transparent;
-            }
+        &:after {
+            content: '\2192';
+            display: inline-block;
+            margin: 0 .25rem;
         }
     }
-}
-
-article.index {
-
-    article.post {
-        background-color: $color-primary-darker;
-        color: $color-primary-white;
-
-        a:link,
-        a:visited {
-            color: $color-primary-white;
-        }
-
-        &:hover {
-            background-color: $color-primary-dark;
-        }
-
-        aside {
-            background-color: transparent;
-        }
-
-        header {
-            padding: 0;
-            background-color: transparent;
-        }
-    }
-}
-
-footer.main {
-    text-align: center;
 }
